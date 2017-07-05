@@ -10,16 +10,16 @@
 	{"x":10,"y":45,"id":9,"label":"数学","size":2,"color":"#f20"}
 	],
 "edges":[
-	{"sourceID":1,"targetID":4},
-	{"sourceID":1,"targetID":5},
-	{"sourceID":1,"targetID":6},
-	{"sourceID":2,"targetID":9},
-	{"sourceID":2,"targetID":4},
-	{"sourceID":2,"targetID":5},
-	{"sourceID":2,"targetID":6},
-	{"sourceID":3,"targetID":4},
-	{"sourceID":3,"targetID":5},
-	{"sourceID":3,"targetID":6},
-	{"sourceID":3,"targetID":7}
+	{"sourceID":1,"targetID":4,"width":13},
+	{"sourceID":1,"targetID":5,"width":0.5},
+	{"sourceID":1,"targetID":6,"width":1},
+	{"sourceID":2,"targetID":9,"width":2},
+	{"sourceID":2,"targetID":4,"width":11},
+	{"sourceID":2,"targetID":5,"width":0.2},
+	{"sourceID":2,"targetID":6,"width":0.1},
+	{"sourceID":3,"targetID":4,"width":0.7},
+	{"sourceID":3,"targetID":5,"width":11},
+	{"sourceID":3,"targetID":6,"width":0.8},
+	{"sourceID":3,"targetID":7,"width":2}
 ]
 }

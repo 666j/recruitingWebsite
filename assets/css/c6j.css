@@ -16,7 +16,14 @@
     height: 58px;
 }
 .navbar-nav li {
-    background: -moz-linear-gradient(#000, #252525);
+   
+
+    border-bottom: 2px solid #181818;
+    border-top: 2px solid #303030;
+    min-width: 160px;
+}
+.navbar-nav ul li{
+	 background: -moz-linear-gradient(#000, #252525);
     background: -ms-linear-gradient(#000, #252525);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000), color-stop(100%, #252525));
     background: -webkit-linear-gradient(#000, #252525);
@@ -24,10 +31,6 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929', endColorstr='#252525');
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929', endColorstr='#252525')";
     background: linear-gradient(#000, #252525);
-
-    border-bottom: 2px solid #181818;
-    border-top: 2px solid #303030;
-    min-width: 160px;
 }
 .navbar-nav > li {
     display: block;
@@ -72,7 +75,7 @@
 
 /* submenu styles */
 .submenu {
-    left: 0;
+    left: -9px;
     max-height: 0;
     position: absolute;
     top: 100%;
