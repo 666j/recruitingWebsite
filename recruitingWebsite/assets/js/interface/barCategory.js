@@ -8,7 +8,7 @@
 	option = null;
 	app.title = '堆叠条形图';
 	//可以选中不同行业进行对比
-	
+
 	/*************模拟数据*********************/
 	var mydata = {
 	  "industry":['通信类','金融类','政府部门','医疗单位','信息类','建筑类','新闻类'],
@@ -21,8 +21,8 @@
 	  ]
 	};
 
-/***********初始化数据**************************/
-function InitData(data){
+	/***********初始化数据**************************/
+	function InitData(data){
 
 		var data_info ={"graph_id":6};
 		/***********与后台交互传输数据***********/
@@ -62,53 +62,53 @@ function InitData(data){
 			initChart(jobs,industries,requirements);
 		}
 	}
-function initChart(jobs,industries,requirements){
-	option = {
-	    tooltip : {
-	        trigger: 'axis',
-	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-	        }
-	    },
-	    legend: {
-	        data: jobs
-	    },
-	    grid: {
-	        left: '3%',
-	        right: '4%',
-	        bottom: '3%',
-	        containLabel: true
-	    },
-	    xAxis:  {
-	        type: 'value'
-	    },
-	    yAxis: {
-	        type: 'category',
-	        data: industries
-	    },
-	    /*********岗位对应行业的需求映射到坐标中*******************/
-	    series: requirements.map(function (requirement) {
+	function initChart(jobs,industries,requirements){
+		option = {
+			tooltip : {
+				trigger: 'axis',
+				axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+					type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+				}
+			},
+			legend: {
+				data: jobs
+			},
+			grid: {
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			xAxis:  {
+				type: 'value'
+			},
+			yAxis: {
+				type: 'category',
+				data: industries
+			},
+			/*********岗位对应行业的需求映射到坐标中*******************/
+			series: requirements.map(function (requirement) {
 
-                    return {
-                        name: requirement.job,
-			            type: 'bar',
-			            stack: '总量',
-			            label: {
-			                normal: {
-			                    show: true,
-			                    position: 'insideRight'
-			                }
-			            },
-			            data: requirement.require
-                        
-                    };
-                })
+						return {
+							name: requirement.job,
+							type: 'bar',
+							stack: '总量',
+							label: {
+								normal: {
+									show: true,
+									position: 'insideRight'
+								}
+							},
+							data: requirement.require
 
-	};
-	if (option && typeof option === "object") {
-	    myChart.setOption(option, true);
+						};
+					})
+
+		};
+		if (option && typeof option === "object") {
+			myChart.setOption(option, true);
+		}
 	}
-}
-InitData(mydata);
+	InitData(mydata);
 
 })();

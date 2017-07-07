@@ -10,11 +10,11 @@
 
     /***********************模拟数据**************************/
     var mydata= {
-        "jobs":['需求分析师', '开发工程师', '测试工程师', '运营维护人员', '产品经理', '项目经理'],
-        "wages":[{"website":"58","wage":[5,1,0,0,2,6]},
-            {"website":"大街网","wage":[2,1,5,0,4,9]},
-            {"website":"拉勾网","wage":[3,0,2,4,7,0]},
-            {"website":"赶集网","wage":[0,1,2,5,4,3]}
+        "educations":['不限', '大专', '本科', '硕士', '博士'],
+        "wages":[{"website":"58","wage":[5,1,0,0,2]},
+            {"website":"大街网","wage":[2,1,5,0,4]},
+            {"website":"拉勾网","wage":[3,0,2,4,7]},
+            {"website":"赶集网","wage":[0,1,2,5,4]}
         ]};
     /***********初始化数据**************************/
     function InitData(data){
@@ -40,8 +40,8 @@
                 if(data.status==0){
                     alert("连接有误");
                 }else{
-                    var jobs =[],websites=[],wages=[];
-                    var jobs = data.jobs;
+                    var educations =[],websites=[],wages=[];
+                    var educations = data.educations;
 
                     for(var i = 0;i<data.wages.length;i++){
                         websites.push(data.wages[i]['website']);
@@ -54,20 +54,17 @@
                     }
 
                 }
-                initChart(jobs,websites,wages);
+                initChart(educations,websites,wages);
 
             }
 
         }
     /*********************网站--岗位薪资水平映射（平均工资）**********************/
-    function initChart(jobs,websites,wages){
+    function initChart(educations,websites,wages){
 
          wages = wages.map(function (item) {
                 return [item[1], item[0], item[2] || '-'];
          });
-         console.log(jobs);
-         console.log(websites);
-         console.log(wages);
         option = {
             tooltip: {
                 position: 'top'
@@ -79,7 +76,7 @@
             },
             xAxis: {
                 type: 'category',
-                data: jobs,
+                data: educations,
                 splitArea: {
                     show: true
                 }
