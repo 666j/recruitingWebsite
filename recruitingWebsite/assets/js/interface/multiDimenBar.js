@@ -83,7 +83,7 @@
             initChart(experiences,industries);
         }
     }
-	/********************不同工作经验下各行业的薪资水平************************/
+
     function initChart(experiences,industries){
 
 		option= {
@@ -132,6 +132,7 @@
 					data : industries
 				}
 			],
+            /********************不同工作经验下各行业的薪资水平************************/
 			series : experiences.map(function (experience) {
 				return experience;
 			})
