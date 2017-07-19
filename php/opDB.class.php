@@ -5,7 +5,7 @@ class opDB {
 	private $host = "localhost";
 	private $root = "root";
 	private $password = "";
-	private $db = "bigdata_recruitment_analysis";
+	private $db = "final";
 
 	function __construct() {//构造函数
 		$this -> mysqli = new mysqli($this -> host, $this -> root, $this -> password, $this -> db);
@@ -77,10 +77,10 @@ class opDB {
 	public function excute_dml($sql) {
 		$res = $this -> mysqli -> query($sql) or die($this -> mysqli -> error);
 		if (!$res) {
-			return -1;
-		} else {
-			if ($this -> mysqli -> affected_rows == 0) {
-				return -1;
+                    return -1;
+                } else {
+                    if ($this -> mysqli -> affected_rows == 0) {
+                        return -1;
 			} else {
 				return 1;
 			}
@@ -90,6 +90,31 @@ class opDB {
 	public function get_length($sql){
 		$res = $this -> mysqli ->query($sql);
 		return $res;
+	}
+
+//数组操作，获取数组最大值
+public function get_array_max($array) {
+	$maxnumber=0;	
+	if (is_array($array)) {  
+	for($i=0;$i<count($array);$i++) {
+		if($array[$i]>$maxnumber){
+			$maxnumber=$array[$i];}
+	}
+			return $maxnumber;
+	}
+	else{return -1;}
+	
+}
+//数组操作，获取数组最小值
+public function get_array_min($array) {
+	$minnumber=0;	
+	$i=0;	
+for(;$i<count($array);$i++) {
+	
+	if($array[$i]<$minnumber){
+		$minnumber=$array[$i];}
+}
+		return $minnumber;
 	}
 
 	//关闭自动提交
@@ -114,4 +139,7 @@ class opDB {
 		$this -> mysqli -> close();
 	}
 }
+
+
+
 ?>
